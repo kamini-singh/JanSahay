@@ -49,10 +49,12 @@ class response(Resource):
             "isVerified": get_prediction(path,category)
         }
         return jsonify(result)
-        
-    
 
 api.add_resource(response,'/response/<string:path>/<string:category>')
+
+@app.route('/')
+def home():
+    return "Namaste Judges"
 
 if __name__ == '__main__':
     app.run(debug=True)
